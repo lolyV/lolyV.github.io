@@ -90,8 +90,8 @@
 
     /* Discord button */
     .menu button {
-      background-color: #7289da;
-      color: #fff;
+      background-color: transparent;
+      color: #7289da;
       border: none;
       cursor: pointer;
       font-size: 20px;
@@ -110,6 +110,7 @@
       <div class="line"></div>
     </div>
     <div class="menu">
+      <button class="exit-button"><a href="#">Exit</a></button>
       <button><a href="https://discord.gg/6eaDrx5J9s" target="_blank" rel="noopener noreferrer">Discord</a></button>
     </div>
   </nav>
@@ -119,10 +120,16 @@
   <script>
     const hamburger = document.querySelector('.hamburger');
     const menu = document.querySelector('.menu');
+    const exitButton = document.querySelector('.exit-button');
 
     hamburger.addEventListener('click', function () {
       hamburger.classList.toggle('open');
       menu.classList.toggle('show');
+    });
+
+    exitButton.addEventListener('click', function () {
+      hamburger.classList.remove('open');
+      menu.classList.remove('show');
     });
   </script>
 </body>
