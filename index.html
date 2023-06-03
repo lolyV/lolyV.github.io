@@ -25,7 +25,7 @@
     /* Navigation styles */
     .navbar {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
     }
@@ -34,11 +34,10 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
       width: 30px;
       height: 20px;
       cursor: pointer;
-      transition: transform 0.3s ease-in-out;
     }
 
     .navbar .hamburger .line {
@@ -59,12 +58,10 @@
       background-color: #2f3136;
       padding: 20px;
       z-index: 9999;
-      transform: translateX(-100%);
-      transition: transform 0.3s ease-in-out;
     }
 
     .navbar .menu.show {
-      transform: translateX(0%);
+      display: block;
     }
 
     .navbar .menu .exit-button {
@@ -79,8 +76,9 @@
     /* Checkout button */
     .checkout-button {
       position: fixed;
-      top: 20px;
+      top: 50%;
       right: 20px;
+      transform: translateY(-50%);
       background-color: #7289da;
       color: #fff;
       padding: 10px 20px;
@@ -88,39 +86,6 @@
       font-size: 18px;
       text-decoration: none;
       z-index: 9999;
-    }
-
-    /* Menu buttons */
-    .menu-buttons {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin-top: 40px;
-    }
-
-    .menu-buttons button {
-      background-color: transparent;
-      color: #fff;
-      border: none;
-      padding: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: color 0.3s ease-in-out;
-    }
-
-    .menu-buttons button:hover {
-      color: #7289da;
-    }
-
-    /* Footer */
-    .footer {
-      margin-top: 40px;
-    }
-
-    .footer-text {
-      font-size: 12px;
-      opacity: 0.8;
-      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -131,40 +96,25 @@
       <div class="line"></div>
       <div class="line"></div>
     </div>
-    <a href="#" class="checkout-button">Checkout</a>
     <div class="menu">
-      <div class="exit-button">&#10005;</div>
-      <div class="menu-buttons">
-        <button>About Us</button>
-        <button>Contact Us</button>
-        <button><a href="https://discord.gg/6eaDrx5J9s" target="_blank" rel="noopener noreferrer">Discord</a></button>
-      </div>
+      <div class="exit-button">&times;</div>
+      <p>Menu content goes here</p>
     </div>
   </nav>
 
-  <div class="content">
-    <!-- Your website content here -->
-  </div>
-
-  <div class="footer">
-    <p class="footer-text">All rights reserved &copy; 2022 &#174;</p>
-  </div>
+  <a class="checkout-button" href="checkout.html">Checkout</a>
 
   <script>
     const hamburger = document.querySelector('.hamburger');
     const menu = document.querySelector('.menu');
     const exitButton = document.querySelector('.exit-button');
 
-    // Toggle the menu when the hamburger button is clicked
     hamburger.addEventListener('click', function () {
       menu.classList.toggle('show');
-      hamburger.classList.toggle('open');
     });
 
-    // Close the menu when the exit button is clicked
     exitButton.addEventListener('click', function () {
       menu.classList.remove('show');
-      hamburger.classList.remove('open');
     });
   </script>
 </body>
