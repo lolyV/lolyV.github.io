@@ -46,30 +46,6 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
-    .checkout-items {
-      margin-bottom: 20px;
-    }
-
-    .checkout-item {
-      display: flex;
-      margin-bottom: 10px;
-    }
-
-    .checkout-item img {
-      width: 80px;
-      height: 80px;
-      margin-right: 10px;
-    }
-
-    .checkout-item-details h3 {
-      font-size: 18px;
-      margin-bottom: 5px;
-    }
-
-    .checkout-item-details p {
-      font-size: 14px;
-    }
-
     .checkout-form input[type="text"],
     .checkout-form input[type="email"] {
       width: 100%;
@@ -97,25 +73,6 @@
   <div class="checkout-container">
     <form class="checkout-form" id="checkout-form">
       <h1>Checkout</h1>
-      <div class="checkout-items">
-        <!-- Your checkout items go here -->
-        <div class="checkout-item">
-          <img src="product1.jpg" alt="Product 1">
-          <div class="checkout-item-details">
-            <h3>Product 1</h3>
-            <p>Price: $10.00</p>
-          </div>
-        </div>
-        <div class="checkout-item">
-          <img src="product2.jpg" alt="Product 2">
-          <div class="checkout-item-details">
-            <h3>Product 2</h3>
-            <p>Price: $20.00</p>
-          </div>
-        </div>
-      </div>
-      <hr>
-      <h2>Total: $30.00</h2>
       <p>Fill in the information below:</p>
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
@@ -123,7 +80,7 @@
       <input type="text" name="creditCard" placeholder="Credit Card Number" required>
       <input type="text" name="expiry" placeholder="MM/YY" required>
       <input type="text" name="cvv" placeholder="CVV" required>
-      <input type="submit" value="Place Order">
+      <input type="submit" value="Checkout">
     </form>
   </div>
 
