@@ -1,1 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <style>
+    /* Reset some default browser styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
+    /* Global styles */
+    body {
+      background-color: #212121;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    /* Checkout styles */
+    .checkout-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .checkout-form {
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .checkout-form input[type="text"],
+    .checkout-form input[type="email"] {
+      padding: 8px;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    .checkout-form input[type="submit"] {
+      padding: 8px 20px;
+      background-color: #fff;
+      color: #212121;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="checkout-container">
+    <form class="checkout-form" id="checkout-form">
+      <h1>Checkout</h1>
+      <p>Fill in the information below:</p>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <script>
+    // Submit the form and send data to Discord webhook
+    const checkoutForm = document.querySelector('#checkout-form');
+    checkoutForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = checkoutForm.elements.name.value;
+      const email = checkoutForm.elements.email.value;
+
+      // Send data to Discord webhook
+      const webhookURL = 'https://discord.com/api/webhooks/1114657015738925107/MT7b6nMzahc-5R4D1esqG9FjwTEt3n5qjiAUo1qT1vHKNeXCj1ubye4mVVfAa_k4sqSM';
+      const payload = {
+        content: `New checkout:\nName: ${name}\nEmail: ${email}`
+      };
+
+      fetch(webhookURL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      }).then(response => {
+        if (response.ok) {
+          alert('Thank you for your purchase!');
+          checkoutForm.reset();
+        } else {
+          alert('Oops! Something went wrong. Please try again later.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
