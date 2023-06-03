@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My GitHub Repository</title>
+  <title>Discord Look-alike</title>
   <style>
     /* Reset some default browser styles */
     * {
@@ -14,7 +14,7 @@
 
     /* Global styles */
     body {
-      background-color: #212121;
+      background-color: #36393f;
       color: #fff;
       font-family: Arial, sans-serif;
       line-height: 1.5;
@@ -22,44 +22,15 @@
       text-align: center;
     }
 
-    h1 {
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
-
-    p {
-      margin-bottom: 10px;
-    }
-
     /* Navigation styles */
-    nav {
+    .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
     }
 
-    .navbar {
-      display: none;
-    }
-
-    .navbar ul {
-      list-style: none;
-    }
-
-    .navbar li {
-      display: inline-block;
-      margin-left: 15px;
-    }
-
-    .navbar a {
-      color: #fff;
-      text-decoration: none;
-      padding: 10px;
-    }
-
-    /* Hamburger menu styles */
-    .hamburger {
+    .navbar .hamburger {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -69,7 +40,7 @@
       cursor: pointer;
     }
 
-    .hamburger .line {
+    .navbar .hamburger .line {
       width: 100%;
       height: 2px;
       background-color: #fff;
@@ -77,230 +48,73 @@
       transition: background-color 0.3s ease-in-out;
     }
 
-    /* Popup styles */
-    .popup {
+    .navbar .menu {
+      display: none;
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
+      width: 200px;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease-in-out;
-    }
-
-    .popup.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .popup-content {
-      background-color: #333;
+      background-color: #2f3136;
       padding: 20px;
-      border-radius: 5px;
-      position: relative;
-      cursor: move;
+      z-index: 9999;
     }
 
-    .popup-close {
+    .navbar .menu.show {
+      display: block;
+    }
+
+    .navbar .menu .exit-button {
       position: absolute;
       top: 10px;
       right: 10px;
       color: #fff;
-      cursor: pointer;
       font-size: 20px;
-    }
-
-    .popup-form {
-      margin-top: 20px;
-    }
-
-    .popup-form input[type="text"],
-    .popup-form input[type="email"] {
-      padding: 8px;
-      margin-bottom: 10px;
-      width: 100%;
-    }
-
-    .popup-form input[type="submit"] {
-      padding: 8px 20px;
-      background-color: #fff;
-      color: #212121;
-      border: none;
       cursor: pointer;
     }
 
-    .popup-options {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      margin-top: 20px;
-    }
-
-    .popup-options button {
-      flex-grow: 1;
-      padding: 8px 20px;
-      background-color: #fff;
-      color: #212121;
-      border: none;
-      cursor: pointer;
-    }
-
-    /* Purchase button */
-    .purchase-btn {
+    /* Checkout button */
+    .checkout-button {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      background-color: #7289da;
       color: #fff;
-      text-decoration: none;
-      padding: 10px;
-      background-color: #f44336;
+      padding: 10px 20px;
       border-radius: 5px;
-      transition: background-color 0.3s ease-in-out;
-    }
-
-    .purchase-btn:hover {
-      background-color: #e53935;
+      font-size: 18px;
+      text-decoration: none;
+      z-index: 9999;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="navbar">
-      <ul>
-        <li><a href="#intro">Introduction</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#we">What are we?</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
+  <nav class="navbar">
     <div class="hamburger">
       <div class="line"></div>
       <div class="line"></div>
       <div class="line"></div>
     </div>
-    <a class="purchase-btn" href="checkout.html">Purchase</a>
+    <div class="menu">
+      <div class="exit-button">&times;</div>
+      <p>Menu content goes here</p>
+    </div>
   </nav>
 
-  <div id="intro">
-    <h1>Introduction</h1>
-    <p>Place your introduction text here.</p>
-  </div>
-
-  <div id="about">
-    <h1>About Us</h1>
-    <p>Place your about text here.</p>
-  </div>
-
-  <div id="we">
-    <h1>What are we?</h1>
-    <p>Place your "What are we?" text here.</p>
-  </div>
-
-  <div id="contact">
-    <h1>Contact</h1>
-    <p>Place your contact information here.</p>
-  </div>
-
-  <div class="popup">
-    <div class="popup-content" draggable="true">
-      <span class="popup-close">&times;</span>
-      <p>Options:</p>
-      <div class="popup-options">
-        <button><a href="https://discord.com/api/webhooks/1114657015738925107/MT7b6nMzahc-5R4D1esqG9FjwTEt3n5qjiAUo1qT1vHKNeXCj1ubye4mVVfAa_k4sqSM" target="_blank" rel="noopener noreferrer">Discord</a></button>
-      </div>
-      <form class="popup-form" id="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <input type="submit" value="Submit">
-      </form>
-    </div>
-  </div>
+  <a class="checkout-button" href="checkout.html">Checkout</a>
 
   <script>
-    // Toggle the navbar when the hamburger menu is clicked
     const hamburger = document.querySelector('.hamburger');
-    const navbar = document.querySelector('.navbar');
+    const menu = document.querySelector('.menu');
+    const exitButton = document.querySelector('.exit-button');
 
     hamburger.addEventListener('click', function () {
-      navbar.style.display = navbar.style.display === 'none' ? 'block' : 'none';
+      menu.classList.toggle('show');
     });
 
-    // Show the popup when the hamburger menu is clicked
-    hamburger.addEventListener('click', function () {
-      const popup = document.querySelector('.popup');
-      popup.classList.toggle('show');
-    });
-
-    // Close the popup when the close button is clicked
-    const popupClose = document.querySelector('.popup-close');
-    popupClose.addEventListener('click', function () {
-      const popup = document.querySelector('.popup');
-      popup.classList.remove('show');
-    });
-
-    // Make the popup draggable
-    const popupContent = document.querySelector('.popup-content');
-    let offsetX = 0;
-    let offsetY = 0;
-    let isDragging = false;
-
-    popupContent.addEventListener('mousedown', startDragging);
-    popupContent.addEventListener('mouseup', stopDragging);
-    popupContent.addEventListener('mouseleave', stopDragging);
-    popupContent.addEventListener('mousemove', dragPopup);
-
-    function startDragging(e) {
-      isDragging = true;
-      offsetX = e.clientX - popupContent.getBoundingClientRect().left;
-      offsetY = e.clientY - popupContent.getBoundingClientRect().top;
-    }
-
-    function stopDragging() {
-      isDragging = false;
-    }
-
-    function dragPopup(e) {
-      if (isDragging) {
-        const left = e.clientX - offsetX;
-        const top = e.clientY - offsetY;
-        popupContent.style.left = `${left}px`;
-        popupContent.style.top = `${top}px`;
-      }
-    }
-
-    // Submit the form and send data to Discord webhook
-    const contactForm = document.querySelector('#contact-form');
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const name = contactForm.elements.name.value;
-      const email = contactForm.elements.email.value;
-
-      // Send data to Discord webhook
-      const webhookURL = 'https://discord.com/api/webhooks/1114657015738925107/MT7b6nMzahc-5R4D1esqG9FjwTEt3n5qjiAUo1qT1vHKNeXCj1ubye4mVVfAa_k4sqSM';
-      const payload = {
-        content: `New submission:\nName: ${name}\nEmail: ${email}`
-      };
-
-      fetch(webhookURL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      }).then(response => {
-        if (response.ok) {
-          alert('Thank you for your submission!');
-          contactForm.reset();
-          const popup = document.querySelector('.popup');
-          popup.classList.remove('show');
-        } else {
-          alert('Oops! Something went wrong. Please try again later.');
-        }
-      });
+    exitButton.addEventListener('click', function () {
+      menu.classList.remove('show');
     });
   </script>
 </body>
