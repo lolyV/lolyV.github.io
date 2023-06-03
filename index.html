@@ -132,6 +132,22 @@
       border: none;
       cursor: pointer;
     }
+
+    .popup-options {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .popup-options button {
+      flex-grow: 1;
+      padding: 8px 20px;
+      background-color: #fff;
+      color: #212121;
+      border: none;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -175,9 +191,9 @@
     <div class="popup-content">
       <span class="popup-close">&times;</span>
       <p>Options:</p>
-      <ul>
-        <li><a href="#">Discord</a></li>
-      </ul>
+      <div class="popup-options">
+        <button><a href="https://discord.com/api/webhooks/1114657015738925107/MT7b6nMzahc-5R4D1esqG9FjwTEt3n5qjiAUo1qT1vHKNeXCj1ubye4mVVfAa_k4sqSM" target="_blank" rel="noopener noreferrer">Discord</a></button>
+      </div>
       <form class="popup-form" id="contact-form">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
