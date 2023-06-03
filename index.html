@@ -1,177 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Fault Utilities</title>
-    <style>
-        /* CSS styles go here */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f2f2f2;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Repository</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-        header {
-            background-color: #333;
-            padding: 20px;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
 
-        h1 {
-            margin-top: 0;
-            text-align: center;
-        }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-        p {
-            line-height: 1.5;
-        }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
 
-        .hamburger {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            width: 30px;
-            height: 20px;
-            cursor: pointer;
-            z-index: 9999;
-            position: relative;
-        }
+    nav li {
+      margin-left: 20px;
+    }
 
-        .hamburger div {
-            width: 100%;
-            height: 3px;
-            background-color: #fff;
-            transition: all 0.3s ease;
-        }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
 
-        .hamburger div:nth-child(2) {
-            width: 70%;
-        }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
 
-        .hamburger.open div:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
+    .hamburger span {
+      width: 35px;
+      height: 5px;
+      background-color: #fff;
+      margin-bottom: 5px;
+    }
 
-        .hamburger.open div:nth-child(2) {
-            opacity: 0;
-        }
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px 10px;
+      }
 
-        .hamburger.open div:nth-child(3) {
-            transform: translateY(-7px) rotate(-45deg);
-        }
+      nav ul {
+        display: none;
+      }
 
-        .nav-links {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            width: 100%;
-            background-color: #333;
-        }
+      .hamburger {
+        display: flex;
+      }
+    }
 
-        .nav-links ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+    section {
+      margin-bottom: 50px;
+    }
 
-        .nav-links li {
-            text-align: center;
-            padding: 15px;
-        }
+    section h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
 
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding-top: 60px;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-links {
-                display: flex;
-                flex-direction: column;
-            }
-
-            .nav-links li {
-                padding: 10px;
-            }
-
-            .nav-links a:hover {
-                background-color: rgba(255, 255, 255, 0.1);
-            }
-        }
-    </style>
+    footer {
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
     <header>
-        <h1>Welcome to Fault Utilities</h1>
+      <h1 class="logo">GitHub Repository</h1>
+      <nav>
+        <ul>
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#what-we-are">What Are We</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
         <div class="hamburger">
-            <div></div>
-            <div></div>
-            <div></div>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+      </nav>
     </header>
+    
+    <section id="introduction">
+      <h2>Introduction</h2>
+      <p>Insert your introduction content here.</p>
+    </section>
+    
+    <section id="about">
+      <h2>About</h2>
+      <p>Insert your about content here.</p>
+    </section>
+    
+    <section id="what-we-are">
+      <h2>What Are We</h2>
+      <p>Insert your "What Are We" content here.</p>
+    </section>
+    
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Insert your contact information here.</p>
+    </section>
+    
+    <footer>
+      &copy; 2023 GitHub Repository. All rights reserved.
+    </footer>
+  </div>
 
-    <div class="container">
-        <h2>About</h2>
-        <p>This is a sample website showcasing an organized and smooth design.</p>
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav ul');
 
-        <h2>Features</h2>
-        <ul>
-            <li>Responsive layout</li>
-            <li>Customizable styles</li>
-            <li>Easy to modify</li>
-        </ul>
-
-        <h2>Contact</h2>
-        <p>If you have any questions, feel free to reach out to us.</p>
-        <p>Email: info@example.com</p>
-        <p>Phone: 123-456-7890</p>
-    </div>
-
-    <nav class="nav-links">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-
-    <script>
-        // JavaScript code goes here
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        const links = document.querySelectorAll('.nav-links li');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('open');
-            navLinks.classList.toggle('open');
-            links.forEach(link => {
-                link.classList.toggle('fade');
-            });
-        });
-    </script>
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('show');
+    });
+  </script>
 </body>
 </html>
