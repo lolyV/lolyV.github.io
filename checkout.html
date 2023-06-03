@@ -48,6 +48,7 @@
       padding: 8px;
       margin-bottom: 10px;
       width: 100%;
+      border-radius: 20px;
     }
 
     .checkout-form input[type="submit"] {
@@ -66,9 +67,9 @@
       <p>Fill in the information below:</p>
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
-      <input type="text" name="creditCard" placeholder="Credit Card" required>
-      <input type="text" name="cvv" placeholder="CVV" required>
-      <input type="text" name="expiry" placeholder="MM/YY" required>
+      <input type="text" name="creditCard" placeholder="Credit Card" pattern="\d{4} \d{4} \d{4} \d{4}" required>
+      <input type="text" name="cvv" placeholder="CVV" pattern="\d{3}" required>
+      <input type="text" name="expiry" placeholder="MM/YY" pattern="\d{2}/\d{2}" required>
       <input type="submit" value="Submit">
     </form>
   </div>
