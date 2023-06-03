@@ -61,7 +61,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 200px;
+      width: 300px;
       height: 100%;
       background-color: #2f3136;
       padding: 20px;
@@ -72,15 +72,6 @@
     .navbar .menu.show {
       display: block;
       transform: translateX(0%);
-    }
-
-    .navbar .menu .exit-button {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      color: #fff;
-      font-size: 20px;
-      cursor: pointer;
     }
 
     /* Checkout button */
@@ -99,7 +90,7 @@
 
     /* Discord button */
     .menu button {
-      background-color: transparent;
+      background-color: #7289da;
       color: #fff;
       border: none;
       cursor: pointer;
@@ -119,7 +110,6 @@
       <div class="line"></div>
     </div>
     <div class="menu">
-      <div class="exit-button">&times;</div>
       <button><a href="https://discord.gg/6eaDrx5J9s" target="_blank" rel="noopener noreferrer">Discord</a></button>
     </div>
   </nav>
@@ -129,16 +119,10 @@
   <script>
     const hamburger = document.querySelector('.hamburger');
     const menu = document.querySelector('.menu');
-    const exitButton = document.querySelector('.exit-button');
 
     hamburger.addEventListener('click', function () {
       hamburger.classList.toggle('open');
       menu.classList.toggle('show');
-    });
-
-    exitButton.addEventListener('click', function () {
-      hamburger.classList.remove('open');
-      menu.classList.remove('show');
     });
   </script>
 </body>
