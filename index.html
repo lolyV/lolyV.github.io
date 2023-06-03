@@ -3,142 +3,183 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GitHub Repository</title>
+  <title>My GitHub Repository</title>
   <style>
-    body {
-      background-color: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
+    /* Reset some default browser styles */
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
+    /* Global styles */
+    body {
+      background-color: #212121;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
       padding: 20px;
+      text-align: center;
     }
 
-    header {
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    /* Navigation styles */
+    nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
+    .navbar {
+      display: none;
     }
 
-    nav ul {
+    .navbar ul {
       list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
     }
 
-    nav li {
-      margin-left: 20px;
+    .navbar li {
+      display: inline-block;
+      margin-left: 15px;
     }
 
-    nav a {
+    .navbar a {
       color: #fff;
       text-decoration: none;
     }
 
+    /* Hamburger menu styles */
     .hamburger {
-      display: none;
+      display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 20px;
       cursor: pointer;
     }
 
-    .hamburger span {
-      width: 35px;
-      height: 5px;
+    .hamburger .line {
+      width: 100%;
+      height: 2px;
       background-color: #fff;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
+      transition: background-color 0.3s ease-in-out;
     }
 
-    @media (max-width: 768px) {
-      .container {
-        padding: 20px 10px;
-      }
-
-      nav ul {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
+    /* Popup styles */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease-in-out;
     }
 
-    section {
-      margin-bottom: 50px;
+    .popup.show {
+      opacity: 1;
+      pointer-events: auto;
     }
 
-    section h2 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    footer {
-      text-align: center;
+    .popup-content {
+      background-color: #333;
       padding: 20px;
+      border-radius: 5px;
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #fff;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1 class="logo">GitHub Repository</h1>
-      <nav>
-        <ul>
-          <li><a href="#introduction">Introduction</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#what-we-are">What Are We</a></li>
-          <li><a href="#contact">Contact Us</a></li>
-        </ul>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </nav>
-    </header>
-    
-    <section id="introduction">
-      <h2>Introduction</h2>
-      <p>Insert your introduction content here.</p>
-    </section>
-    
-    <section id="about">
-      <h2>About</h2>
-      <p>Insert your about content here.</p>
-    </section>
-    
-    <section id="what-we-are">
-      <h2>What Are We</h2>
-      <p>Insert your "What Are We" content here.</p>
-    </section>
-    
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <p>Insert your contact information here.</p>
-    </section>
-    
-    <footer>
-      &copy; 2023 GitHub Repository. All rights reserved.
-    </footer>
+  <nav>
+    <div class="hamburger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <div class="navbar">
+      <ul>
+        <li><a href="#intro">Introduction</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#we">What are we</a></li>
+        <li><a href="#contact">Contact us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="intro">
+    <h1>Introduction</h1>
+    <p>Place your introduction text here.</p>
+  </div>
+
+  <div id="about">
+    <h1>About</h1>
+    <p>Place your about text here.</p>
+  </div>
+
+  <div id="we">
+    <h1>What are we</h1>
+    <p>Place your "What are we" text here.</p>
+  </div>
+
+  <div id="contact">
+    <h1>Contact us</h1>
+    <p>Place your contact information here.</p>
+  </div>
+
+  <div class="popup">
+    <div class="popup-content">
+      <span class="popup-close">&times;</span>
+      <p>Options:</p>
+      <ul>
+        <li><a href="#">Discord</a></li>
+      </ul>
+    </div>
   </div>
 
   <script>
+    // Toggle the navbar when the hamburger menu is clicked
     const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav ul');
+    const navbar = document.querySelector('.navbar');
 
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('show');
+    hamburger.addEventListener('click', function () {
+      navbar.style.display = navbar.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // Show the popup when the hamburger menu is clicked
+    hamburger.addEventListener('click', function () {
+      const popup = document.querySelector('.popup');
+      popup.classList.toggle('show');
+    });
+
+    // Close the popup when the close button is clicked
+    const popupClose = document.querySelector('.popup-close');
+    popupClose.addEventListener('click', function () {
+      const popup = document.querySelector('.popup');
+      popup.classList.remove('show');
     });
   </script>
 </body>
