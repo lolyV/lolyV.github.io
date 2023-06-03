@@ -100,42 +100,18 @@
       width: 100%;
       text-align: left;
     }
-
-    .menu .exit-button {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 30px;
-      height: 20px;
-      cursor: pointer;
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .menu .exit-button .line {
-      width: 100%;
-      height: 2px;
-      background-color: #fff;
-      margin-bottom: 4px;
-      transition: background-color 0.3s ease-in-out;
-    }
-
-    .menu .exit-button.open {
-      transform: rotate(45deg);
-    }
   </style>
 </head>
 <body>
   <nav class="navbar">
-    <div class="hamburger"></div>
+    <div class="hamburger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
     <div class="menu">
-      <div class="exit-button"></div>
-      <button>About us</button>
-      <button>Contact Us</button>
-      <button class="discord-button">Discord</button>
+      <button class="exit-button"><a href="#">Exit</a></button>
+      <button><a href="https://discord.gg/6eaDrx5J9s" target="_blank" rel="noopener noreferrer">Discord</a></button>
     </div>
   </nav>
 
@@ -145,7 +121,6 @@
     const hamburger = document.querySelector('.hamburger');
     const menu = document.querySelector('.menu');
     const exitButton = document.querySelector('.exit-button');
-    const discordButton = document.querySelector('.discord-button');
 
     hamburger.addEventListener('click', function () {
       hamburger.classList.toggle('open');
@@ -155,10 +130,6 @@
     exitButton.addEventListener('click', function () {
       hamburger.classList.remove('open');
       menu.classList.remove('show');
-    });
-
-    discordButton.addEventListener('click', function () {
-      window.location.href = 'https://discord.gg/6eaDrx5J9s';
     });
   </script>
 </body>
