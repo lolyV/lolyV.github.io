@@ -29,6 +29,7 @@
     .logo {
       font-size: 24px;
       font-weight: bold;
+      text-align: center;
     }
 
     nav ul {
@@ -58,6 +59,19 @@
       height: 5px;
       background-color: #fff;
       margin-bottom: 5px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(-45deg) translate(-9px, 6px);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(45deg) translate(-9px, -6px);
     }
 
     @media (max-width: 768px) {
@@ -81,6 +95,7 @@
     section h2 {
       font-size: 24px;
       margin-bottom: 20px;
+      text-align: center;
     }
 
     footer {
@@ -138,6 +153,7 @@
     const nav = document.querySelector('nav ul');
 
     hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
       nav.classList.toggle('show');
     });
   </script>
