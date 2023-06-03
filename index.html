@@ -1,158 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
     <style>
-        /* Global styles */
+        /* CSS styles go here */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f2f2f2;
         }
 
-        /* Header styles */
-        header {
-            background-color: #333;
-            color: #fff;
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
-            text-align: center;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Navigation styles */
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            background-color: #555;
-            overflow: hidden;
-        }
-
-        nav ul li {
-            display: inline;
-        }
-
-        nav ul li a {
-            display: block;
-            color: #fff;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        nav ul li a:hover {
-            background-color: #777;
-        }
-
-        /* Main content styles */
-        main {
-            padding: 20px;
-        }
-
-        section {
-            margin-bottom: 20px;
-        }
-
-        h2 {
+        h1 {
             color: #333;
-        }
-
-        ul {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
-        }
-
-        /* Footer styles */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
             text-align: center;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
-    <header>
+    <div class="container">
         <h1>Welcome to My Website</h1>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <section>
-            <h2>About</h2>
-            <p>This is the About section of my website.</p>
-        </section>
-
-        <section>
-            <h2>Services</h2>
-            <ul>
-                <li>Service 1</li>
-                <li>Service 2</li>
-                <li>Service 3</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Contact</h2>
-            <form id="contact-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <input type="submit" value="Submit">
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2023 My Website. All rights reserved.</p>
-    </footer>
-
-    <script>
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
-
-            // Get form values
-            var name = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
-            var message = document.getElementById('message').value;
-
-            // Create payload data
-            var payload = {
-                "username": "Website Contact Form",
-                "content": "Name: " + name + "\nEmail: " + email + "\nMessage: " + message
-            };
-
-            // Make POST request to Discord webhook
-            fetch("https://discord.com/api/webhooks/1114657015738925107/MT7b6nMzahc-5R4D1esqG9FjwTEt3n5qjiAUo1qT1vHKNeXCj1ubye4mVVfAa_k4sqSM", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(payload)
-            }).then(function(response) {
-                // Handle response
-                console.log("Message sent to Discord webhook!");
-                // You can add your own code here to display a success message or redirect the user to a thank-you page.
-            }).catch(function(error) {
-                // Handle error
-                console.error("Error sending message to Discord webhook:", error);
-                // You can add your own code here to display an error message to the user.
-            });
-        });
-    </script>
+        <p>This is a sample HTML file with built-in CSS.</p>
+        <p>You can modify the styles in the &lt;style&gt; section above to customize the appearance of your website.</p>
+    </div>
 </body>
 </html>
