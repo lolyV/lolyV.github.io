@@ -70,33 +70,6 @@
             text-align: center;
         }
     </style>
-    <script>
-        function submitForm(event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            // Get form data
-            var name = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
-            var message = document.getElementById('message').value;
-
-            // Create the payload to send to the webhook
-            var payload = {
-                name: name,
-                email: email,
-                message: message
-            };
-
-            // Make an HTTP POST request to the webhook URL
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://discord.com/api/webhooks/1021129754822332587/ibrWMZZLRjnqnfJMcgT38LwP1EftPv82Ru_XdVndoHIH1H5B4T1MYlJv2MicPdvvEr-0');
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.send(JSON.stringify(payload));
-
-            // Optionally, display a success message or redirect to another page
-            alert('Form submitted successfully!');
-            window.location.href = 'success.html';
-        }
-    </script>
 </head>
 <body>
     <header>
@@ -129,7 +102,7 @@
 
         <section>
             <h2>Contact</h2>
-            <form onsubmit="submitForm(event)">
+            <form id="contact-form">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
 
@@ -147,5 +120,39 @@
     <footer>
         <p>&copy; 2023 My Website. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get form values
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+
+            // Create payload data
+            var payload = {
+                "username": "Website Contact Form",
+                "content": "Name: " + name + "\nEmail: " + email + "\nMessage: " + message
+            };
+
+            // Make POST request to Discord webhook
+            fetch("https://discord.com/api/webhooks/1114657015738925107/MT7b6nMzahc-5R4D1esqG9FjwTEt3n5qjiAUo1qT1vHKNeXCj1ubye4mVVfAa_k4sqSM", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            }).then(function(response) {
+                // Handle response
+                console.log("Message sent to Discord webhook!");
+                // You can add your own code here to display a success message or redirect the user to a thank-you page.
+            }).catch(function(error) {
+                // Handle error
+                console.error("Error sending message to Discord webhook:", error);
+                // You can add your own code here to display an error message to the user.
+            });
+        });
+    </script>
 </body>
 </html>
